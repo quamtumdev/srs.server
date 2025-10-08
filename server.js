@@ -65,6 +65,25 @@ app.use((err, req, res, next) => {
   next(err);
 });
 
+// Test route to check if server is running
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Server is running successfully!",
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || "development"
+  });
+});
+
+// Health check route
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.use("/api/auth", router);
 app.use("/api/auth/guideline", guidelineRoutes);
 app.use("/api/auth/stream", streamRoutes);
