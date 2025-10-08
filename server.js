@@ -31,7 +31,7 @@ const testStudentRoutes = require("./router/studentRoutes/testStudentRoutes");
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: ["https://srs-client-three.vercel.app", "http://localhost:5173"] }));
 app.use(express.json());
 app.use(errorMiddleware);
 
