@@ -47,7 +47,7 @@ app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 app.use(express.json({ limit: "10mb" }));
 
 // Create upload directories if they don't exist
-const uploadDirs = ["uploads/profile-images", "assets/backend-img"];
+const uploadDirs = ["uploads/profile-images", "public/assets/backend-img"];
 uploadDirs.forEach(dir => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
